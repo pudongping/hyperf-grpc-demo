@@ -63,6 +63,15 @@ cd server-consumer && php bin/hyperf.php start
 curl 127.0.0.1:9511/index/hello
 ```
 
+回到服务提供者控制台，我们可以看到有如下输出内容
+
+```shell
+string(17) "request name ==> "
+string(4) "Alex"
+string(16) "request sex ==> "
+int(2)
+```
+
 回到服务消费者控制台，我们可以看到有如下输出内容
 
 ```shell
