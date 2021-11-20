@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package grpc;
+
+service hello {
+  rpc sayHello (HiRequest) returns (HiResponse) {}  // sayHello 接口，客户端代码
+}
+
+message HiRequest {
+  string name = 1;
+  int32 sex = 2;
+}
+
+message UserResponseEntity {
+  string name = 1;
+  int32 sex = 2;
+}
+
+message HiResponse {
+  int32 code = 1;
+  string message = 2;
+  UserResponseEntity data = 3;
+}

@@ -11,6 +11,16 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Grpc\HelloGrpc;
+use Hyperf\HttpServer\Annotation\AutoController;
+use Hyperf\Utils\ApplicationContext;
+
+/**
+ * @AutoController()
+ *
+ * Class IndexController
+ * @package App\Controller
+ */
 class IndexController extends AbstractController
 {
     public function index()
@@ -23,4 +33,11 @@ class IndexController extends AbstractController
             'message' => "Hello {$user}.",
         ];
     }
+
+    public function hello()
+    {
+        $res = ApplicationContext::getContainer()->get(HelloGrpc::class)->say();
+        var_dump('indexController ==> ', $res);
+    }
+
 }
