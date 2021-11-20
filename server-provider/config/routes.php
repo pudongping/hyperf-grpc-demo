@@ -16,3 +16,11 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@i
 Router::get('/favicon.ico', function () {
     return '';
 });
+
+
+// 定义 grpc 服务路由
+Router::addServer('grpc', function () {
+    Router::addGroup('/grpc.hello', function () {
+        Router::post('/sayHello', 'App\Grpc\HelloGrpc@sayHello');
+    });
+});
